@@ -256,8 +256,6 @@ Si quieres profundizar en los detalles del protocolo, tenemos la **documentació
 | Intercambio de claves | ✅ Funcional | Requiere relay server |
 | Relay Server | ⚠️ Prototipo | Funciona, pero necesita documentación |
 | Renovación automática de claves | ✅ Funcional | Cada ~1 hora, transparente |
-| Integración AndroidAPS | 🔜 Pendiente | Objetivo principal a futuro |
-| Setup guide del relay | 🔜 Pendiente | En desarrollo |
 
 ---
 
@@ -273,13 +271,6 @@ Dicho esto: miles de personas en la comunidad #WeAreNotWaiting llevan años cont
 
 - **[Uneo7/Ypso](https://github.com/Uneo7/Ypso)**: El proyecto Python de referencia que abrió el camino.
 - **La comunidad #WeAreNotWaiting**: Por demostrar que los pacientes tienen derecho a controlar sus propios dispositivos médicos.
-- **AndroidAPS**: Por construir el ecosistema que hace que todo esto tenga sentido.
-
----
-
-> _"We are not waiting for companies to give us what we need. We build it ourselves."_
->
-> — Comunidad DIY de diabetes
 
 ---
 
