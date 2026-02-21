@@ -38,7 +38,7 @@ y el proyecto de referencia [Uneo7/Ypso](https://github.com/Uneo7/Ypso) (Python)
 La YpsoPump expone un protocolo BLE propietario llamado **ProBluetooth** con dos servicios GATT principales:
 
 ```
-┌──────────────┐        BLE GATT        ┌────────────────────┐
+┌──────────────┐         BLE GATT        ┌────────────────────┐
 │  Android App │ ◄─────────────────────► │    YpsoPump        │
 │              │                         │                    │
 │  BleManager  │   Service: Security     │  Autenticación     │
@@ -191,7 +191,7 @@ Antes de cifrar, se añaden 12 bytes de contadores al final del payload:
 
 ```
 ┌──────────────────┬────────────────────┬────────────────────┐
-│  payload (N bytes)│ reboot_counter (4B)│ write_counter (8B) │
+│ payload (N bytes)│ reboot_counter (4B)│ write_counter (8B) │
 └──────────────────┴────────────────────┴────────────────────┘
                      LE uint32            LE uint64
 ```
@@ -335,19 +335,19 @@ La clave se obtiene a través de un servidor Proregia (relay) y es válida por a
      │◄── server_nonce   │                    │
      │                   │                    │
      │ 3. POST /exchange►│                    │
-     │   (challenge,      │                    │
-     │    pump_pubkey,    │                    │
-     │    app_pubkey,     │                    │
-     │    integrity_token)│                    │
+     │   (challenge,     │                    │
+     │    pump_pubkey,   │                    │
+     │    app_pubkey,    │                    │
+     │   integrity_token)│                    │
      │◄── encrypted_resp │                    │
      │                   │                    │
      │ 4. Write CHAR_CMD_WRITE ──────────────►│
-     │   (encrypted_resp) │                    │
+     │  (encrypted_resp) │                    │
      │                   │                    │
      │ 5. Derivar clave local:                │
-     │    shared = X25519(app_priv, pump_pub)  │
-     │    key = HChaCha20(shared, 0x00*16)     │
-     └──────────────────────────────────────────
+     │    shared = X25519(app_priv, pump_pub) │
+     │    key = HChaCha20(shared, 0x00*16)    │
+     └────────────────────────────────────────┘
 ```
 
 ### Clave pública de la bomba
@@ -416,24 +416,24 @@ Play Integrity válido para el package de mylife.
      │ 1. POST /nonce     │                     │
      │   {bt_address}     │                     │
      │   ────────────────►│                     │
-     │                    │ 2. getNonce(serial)  │
-     │                    │ ────────────────────►│
-     │                    │◄──── server_nonce    │
+     │                    │ 2. getNonce(serial) │
+     │                    │ ───────────────────►│
+     │                    │◄──── server_nonce   │
      │◄── server_nonce    │                     │
      │                    │                     │
      │ 3. POST /exchange  │                     │
-     │   {challenge,       │                     │
-     │    pump_pubkey,     │                     │
-     │    app_pubkey,      │                     │
-     │    integrity_token} │                     │
+     │   {challenge,      │                     │
+     │    pump_pubkey,    │                     │
+     │    app_pubkey,     │                     │
+     │    integrity_token}│                     │
      │   ────────────────►│                     │
-     │                    │ 4. encryptKey(       │
-     │                    │   challenge,         │
-     │                    │   pump_pubkey,       │
-     │                    │   app_pubkey,        │
-     │                    │   integrity_token)   │
-     │                    │ ────────────────────►│
-     │                    │◄── encrypted_resp    │
+     │                    │ 4. encryptKey(      │
+     │                    │   challenge,        │
+     │                    │   pump_pubkey,      │
+     │                    │   app_pubkey,       │
+     │                    │   integrity_token)  │
+     │                    │ ───────────────────►│
+     │                    │◄── encrypted_resp   │
      │◄── encrypted_resp  │                     │
      └────────────────────┴─────────────────────┘
 ```
@@ -1218,7 +1218,7 @@ El flujo automático de conexión (`autoConnect`) sigue estos pasos:
 ├────────────────────────────────────────────────────┤
 │ 3. AUTENTICACIÓN                                   │
 │    - Calcular MD5(mac + salt)                      │
-│    - Escribir en CHAR_AUTH_PASSWORD                 │
+│    - Escribir en CHAR_AUTH_PASSWORD                │
 ├────────────────────────────────────────────────────┤
 │ 4. CARGAR CLAVE DE CIFRADO                         │
 │    - Buscar en SharedPreferences("ypso_crypto")    │
@@ -1226,7 +1226,7 @@ El flujo automático de conexión (`autoConnect`) sigue estos pasos:
 │    - Si no existe: → paso 4b (key exchange)        │
 ├────────────────────────────────────────────────────┤
 │ 4b. INTERCAMBIO DE CLAVES (si necesario)           │
-│    - Si hay URL relay guardada: auto key exchange   │
+│    - Si hay URL relay guardada: auto key exchange  │
 │    - Si no: mostrar UI de key exchange al usuario  │
 ├────────────────────────────────────────────────────┤
 │ 5. VALIDAR CLAVE                                   │
