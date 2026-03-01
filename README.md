@@ -1,5 +1,7 @@
 # 🩸 YpsoPump DIY 
 
+I’ve discovered this fantastic project [ypsopump-research](https://github.com/SandraK82/ypsopump-research), so it’s best you check it out there @SandraK82 has done a great job!!
+
 [Texto de bienvenida](./Bienvenido.md)
 
 [Welcome text](./Welcome.md)
